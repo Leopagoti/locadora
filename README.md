@@ -12,4 +12,4 @@ Este guia rápido ajudará você a configurar e rodar um projeto Node.js em uma 
 após clonar o repositório
 `npm install`
 
-use outros scripts definidos no `package.json`, como `npm run bioçd` e `npm start`.
+use outros scripts definidos no `package.json`, como `npm run build` e `npm start`.
