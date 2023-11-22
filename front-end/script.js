@@ -21,25 +21,6 @@ function showSection(sectionId) {
     }
 }
 
-// function carregarVeiculosDisponiveisPorTipo(tipoCarteira) {
-//     fetch('http://localhost:3000/listar-veiculos-disponiveis')
-//         .then(response => response.json())
-//         .then(data => {
-//             const selecaoVeiculoSelect = document.getElementById('selecao-veiculo');
-//             selecaoVeiculoSelect.innerHTML = ''; // Limpa as opções anteriores
-
-//             data.forEach(veiculo => {
-//                 // Filtra os veículos pelo tipo de carteira selecionado
-//                 if ((tipoCarteira === 'A' && veiculo.tipo === 'moto') || (tipoCarteira === 'B' && veiculo.tipo === 'carro')) {
-//                     const option = document.createElement('option');
-//                     option.value = veiculo.id; // Supondo que cada veículo tem um ID único
-//                     option.textContent = `Placa: ${veiculo.placa}, Diária: ${veiculo.valorDiaria}`;
-//                     selecaoVeiculoSelect.appendChild(option);
-//                 }
-//             });
-//         })
-//         .catch(error => console.error('Erro ao carregar veículos:', error));
-// }
 function carregarVeiculosDisponiveisPorTipo(tipoCarteira) {
     fetch('http://localhost:3000/listar-veiculos-disponiveis')
         .then(response => response.json())
