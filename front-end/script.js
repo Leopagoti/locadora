@@ -264,11 +264,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 messageContainer.textContent = data.message || 'Operação realizada com sucesso';
                 messageContainer.style.color = 'green';
+                setTimeout(limparMensagem, 3000)
             })
             .catch(error => {
                 console.error('Erro:', error);
                 messageContainer.textContent = error.message;
                 messageContainer.style.color = 'red';
+                setTimeout(limparMensagem, 3000)
             });
         });
     }
