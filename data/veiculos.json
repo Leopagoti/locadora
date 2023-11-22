@@ -1,0 +1,14 @@
+[
+  {
+    "placa": "01",
+    "tipo": "carro",
+    "valorDiaria": "10",
+    "alugado": false
+  },
+  {
+    "placa": "02",
+    "tipo": "moto",
+    "valorDiaria": "20",
+    "alugado": false
+  }
+]

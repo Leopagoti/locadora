@@ -1,0 +1,86 @@
+/* Reset básico para remover as margens e paddings padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+#top {
+    width: 100%;
+    max-width: 480px; /* Ajuste para a largura máxima desejada */
+    margin: 20px auto; /* Isso centraliza o #top horizontalmente e adiciona margem superior e inferior */
+    display: flex;
+    flex-direction: column; /* Isso garante que os filhos do #top estejam alinhados verticalmente */
+    align-items: center; /* Isso centraliza os filhos do #top horizontalmente */
+}
+
+h1 {
+    margin-bottom: 1em;
+}
+
+.form-section {
+    width: 100%; /* Os formulários e seções preenchem a largura do #top */
+    max-width: 480px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    margin: 20px auto; /* Adiciona espaço abaixo de cada formulário/seção */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+button {
+    width: 100%; /* Faz os inputs ocuparem toda a largura do contêiner */
+    padding: 10px;
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Estilização da lista de veículos */
+#lista-veiculos-disponiveis {
+    list-style-type: none; /* Remove os marcadores de lista */
+    padding: 0;
+}
+
+#lista-veiculos-disponiveis li {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    list-style-type: none; /* Remove os marcadores de lista */
+}
+
+#lista-veiculos-disponiveis li:last-child {
+    margin-bottom: 0;
+}
