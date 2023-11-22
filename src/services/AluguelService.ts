@@ -40,7 +40,7 @@ export async function alugarVeiculo(dadosAluguel: string) {
     await veiculosDB.writeData(veiculos);
 
     const novoAluguel = new Aluguel(cliente, veiculo, parseInt(aluguelData.dias));
-    const valorTotal = novoAluguel.calcularValorTotal();
+    const valorTotal = novoAluguel.calcularValorTotal().toFixed(2);
     const alugueis = await alugueisDB.readData<Aluguel>();
     alugueis.push(novoAluguel);
     await alugueisDB.writeData(alugueis);

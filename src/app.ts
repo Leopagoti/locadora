@@ -53,9 +53,6 @@ const server = http.createServer(async (req, res) => {
         req.on('end', async () => {
             try {
                 const result = await alugarVeiculo(body);
-                
-                console.log('Dados recebidos:', body);
-
                 res.writeHead(result.status, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ message: result.message, valorTotal: result.valorTotal }));
             } catch (error) {

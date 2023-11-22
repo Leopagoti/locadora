@@ -1,111 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locadora de Veículos</title>
-    <link rel="stylesheet" href="style.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locadora de Veículos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="top">
-        <h1>Locadora de Veículos</h1>
-        <!-- Elemento para exibir mensagens de erro ou sucesso -->
-        <h4 id="message-container"></h4>
+<div id="top">
+  <h1>Locadora de Veículos</h1>
+  <!-- Elemento para exibir mensagens de erro ou sucesso -->
+  <h4 id="message-container"></h4>
 
-        <label for="menu-options">Escolha uma opção:</label>
-        <select id="menu-options" name="menu-options" onchange="showSection(this.value)">
-            <option value="">--Selecione uma Opção--</option>
-            <option value="cadastrar-veiculo">Cadastrar Veículo</option>
-            <option value="alugar-veiculo">Alugar Veículo</option>
-            <option value="devolver-veiculo">Devolver Veículo</option>
-            <option value="listar-veiculos">Listar Veículos Disponíveis</option>
-            <option value="listar-alugueis">Listar Veículos Alugados</option>
-        </select>
-    </div>
-    
+  <label for="menu-options">Escolha uma opção:</label>
+  <select id="menu-options" name="menu-options" onchange="showSection(this.value)">
+    <option value="">--Selecione uma Opção--</option>
+    <option value="cadastrar-veiculo">Cadastrar Veículo</option>
+    <option value="alugar-veiculo">Alugar Veículo</option>
+    <option value="devolver-veiculo">Devolver Veículo</option>
+    <option value="listar-veiculos">Listar Veículos Disponíveis</option>
+    <option value="listar-alugueis">Listar Veículos Alugados</option>
+  </select>
+</div>
 
-    <!-- Formulário para Cadastrar Veículo -->
-    <div id="cadastrar-veiculo" class="form-section" style="display:none;">
-        <h2>Cadastrar Veículo</h2>
-        <form id="cadastrar-veiculo-form" action="http://localhost:3000/cadastrar-veiculo" method="post">
-            <label for="placa">Placa:</label>
-            <input type="text" id="placa" name="placa"><br>
-            
-            <label for="tipo-veiculo">Tipo do Veículo:</label>
-            <select id="tipo-veiculo" name="tipo-veiculo">
-                <option value="carro">Carro 🚗</option>
-                <option value="moto">Moto 🛵</option>
-            </select><br>
-            
-            <label for="valor-diaria">Valor da Diária:</label>
-            <input type="number" id="valor-diaria" name="valor-diaria"><br>
-            
-            <button type="submit">Cadastrar Veículo</button>
-        </form>
-    </div>
+<!-- Formulário para Cadastrar Veículo -->
+<div id="cadastrar-veiculo" class="form-section" style="display:none;">
+  <h2>Cadastrar Veículo</h2>
+  <form id="cadastrar-veiculo-form" action="http://localhost:3000/cadastrar-veiculo" method="post">
+    <label for="placa">Placa:</label>
+    <input type="text" id="placa" name="placa"><br>
 
-    <!-- Seção para Listar Veículos Disponíveis -->
-    <div id="listar-veiculos" class="form-section" style="display:none;">
-        <h2>Veículos Disponíveis</h2>
-        <ul id="lista-veiculos-disponiveis">
-            <!-- Itens da lista de veículos serão adicionados aqui -->
-        </ul>
-    </div>
+    <label for="tipo-veiculo">Tipo do Veículo:</label>
+    <select id="tipo-veiculo" name="tipo-veiculo">
+      <option value="carro">Carro 🚗</option>
+      <option value="moto">Moto 🛵</option>
+    </select><br>
 
+    <label for="valor-diaria">Valor da Diária: R$</label>
+    <input type="text" id="valor-diaria-formatado" name="valor-diaria-formatado" placeholder="R$"><br>
+    <input type="hidden" id="valor-diaria" name="valor-diaria">
 
-    <!-- Seção para Listar Veículos Alugados -->
-    <div id="listar-alugueis" class="form-section" style="display:none;">
-        <h2>Veículos Alugados</h2>
-        <ul id="lista-veiculos-alugados">
-            <!-- Itens da lista de veículos alugados serão adicionados aqui -->
-        </ul>
-    </div>
+    <button type="submit">Cadastrar Veículo</button>
+  </form>
+</div>
 
+<!-- Seção para Listar Veículos Disponíveis -->
+<div id="listar-veiculos" class="form-section" style="display:none;">
+  <h2>Veículos Disponíveis</h2>
+  <ul id="lista-veiculos-disponiveis">
+    <!-- Itens da lista de veículos serão adicionados aqui -->
+  </ul>
+</div>
 
+<!-- Seção para Listar Veículos Alugados -->
+<div id="listar-alugueis" class="form-section" style="display:none;">
+  <h2>Veículos Alugados</h2>
+  <ul id="lista-veiculos-alugados">
+    <!-- Itens da lista de veículos alugados serão adicionados aqui -->
+  </ul>
+</div>
 
-    <!-- Formulário para Alugar Veículo -->
-    <div id="alugar-veiculo" class="form-section" style="display:none;">
-        <h2>Alugar Veículo</h2>
-        <form id="alugar-veiculo-form">
-            <label for="nome-cliente">Nome:</label>
-            <input type="text" id="nome-cliente" name="nome-cliente" required><br>
+<!-- Formulário para Alugar Veículo -->
+<div id="alugar-veiculo" class="form-section" style="display:none;">
+  <h2>Alugar Veículo</h2>
+  <form id="alugar-veiculo-form">
+    <label for="nome-cliente">Nome:</label>
+    <input type="text" id="nome-cliente" name="nome-cliente" required><br>
 
-            <label for="cpf-cliente">CPF:</label>
-            <input type="text" id="cpf-cliente" name="cpf-cliente" required><br>
+    <label for="cpf-cliente">CPF:</label>
+    <input type="text" id="cpf-cliente" name="cpf-cliente" required><br>
 
-            <label for="tipo-carteira">Tipo da Carteira:</label>
-            <select id="tipo-carteira" name="tipo-carteira" required>
-                <option value="">Seleciona um tipo</option>
-                <option value="A">A - Moto 🛵</option>
-                <option value="B">B - Carro 🚗</option>
-            </select><br>
+    <label for="tipo-carteira">Tipo da Carteira:</label>
+    <select id="tipo-carteira" name="tipo-carteira" required>
+      <option value="">Seleciona um tipo</option>
+      <option value="A">A - Moto 🛵</option>
+      <option value="B">B - Carro 🚗</option>
+    </select><br>
 
-            <label for="selecao-veiculo">Selecionar Veículo:</label>
-            <select id="selecao-veiculo" name="selecao-veiculo" required>
-                <!-- Opções de veículos disponíveis serão carregadas aqui pelo JavaScript -->
-            </select><br>
+    <label for="selecao-veiculo">Selecionar Veículo:</label>
+    <select id="selecao-veiculo" name="selecao-veiculo" required>
+      <!-- Opções de veículos disponíveis serão carregadas aqui pelo JavaScript -->
+    </select><br>
 
-            <label for="dias-aluguel">Dias de Aluguel:</label>
-            <input type="number" id="dias-aluguel" name="dias-aluguel" min="1" required><br>
+    <label for="dias-aluguel">Dias de Aluguel:</label>
+    <input type="number" id="dias-aluguel" name="dias-aluguel" min="1" required><br>
+    <p id="preco-previa">Valor do aluguel: R$ 0,00</p>
 
-            <button type="submit">Alugar Veículo</button>
-        </form>
-    </div>
+    <button type="submit">Alugar Veículo</button>
+  </form>
+</div>
 
-    <!-- Formulário para Devolver Veículo -->
-    <div id="devolver-veiculo" class="form-section" style="display:none;">
-        <h2>Devolver Veículo</h2>
-        <form id="devolver-veiculo-form">
-            <label for="cpf-cliente-devolucao">CPF do Cliente:</label>
-            <input type="text" id="cpf-cliente-devolucao" name="cpf-cliente-devolucao" required><br>
-            <button type="submit">Devolver Veículo</button>
-        </form>
-    </div>
+<!-- Formulário para Devolver Veículo -->
+<div id="devolver-veiculo" class="form-section" style="display:none;">
+  <h2>Devolver Veículo</h2>
+  <form id="devolver-veiculo-form">
+    <label for="cpf-cliente-devolucao">CPF do Cliente:</label>
+    <input type="text" id="cpf-cliente-devolucao" name="cpf-cliente-devolucao" required><br>
+    <button type="submit">Devolver Veículo</button>
+  </form>
+</div>
 
-
-
-    
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
