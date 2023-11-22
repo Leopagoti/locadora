@@ -3,7 +3,7 @@
     "placa": "ABC1234",
     "tipo": "carro",
     "valorDiaria": "100.00",
-    "alugado": true
+    "alugado": false
   },
   {
     "placa": "DEF5678",
@@ -57,6 +57,12 @@
     "placa": "BCD7890",
     "tipo": "moto",
     "valorDiaria": "65.00",
+    "alugado": false
+  },
+  {
+    "placa": "NIE2234",
+    "tipo": "carro",
+    "valorDiaria": "340.00",
     "alugado": false
   }
 ]

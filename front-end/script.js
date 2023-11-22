@@ -187,6 +187,13 @@ function showSection(sectionId) {
           setTimeout(limparMensagem, 3000)
           return;
         }
+
+        if (!validaCPF(cpfCliente)) {
+            messageContainer.textContent = 'CPF inválido.';
+            messageContainer.style.color = 'red';
+            setTimeout(limparMensagem, 3000);
+            return;
+        }
   
         if (!diasAluguel || diasAluguel < 1) {
           messageContainer.textContent = 'Informe a quantidade de dias para o aluguel.';
@@ -240,6 +247,13 @@ function showSection(sectionId) {
           messageContainer.textContent = 'Por favor, informe o CPF do cliente.';
           messageContainer.style.color = 'red';
           return;
+        }
+
+        if (!validaCPF(cpfCliente)) {
+            messageContainer.textContent = 'CPF inválido. Por favor, verifique.';
+            messageContainer.style.color = 'red';
+            setTimeout(limparMensagem, 3000)
+            return;
         }
   
         fetch('http://localhost:3000/devolver-veiculo', {
@@ -301,4 +315,57 @@ function showSection(sectionId) {
     messageContainer.style.color = '';
   }
 
-  
+  function validaCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g,'');    
+    if(cpf == '') return false; 
+    
+    if (cpf.length != 11 || 
+        cpf == "00000000000" || 
+        cpf == "11111111111" || 
+        cpf == "22222222222" || 
+        cpf == "33333333333" || 
+        cpf == "44444444444" || 
+        cpf == "55555555555" || 
+        cpf == "66666666666" || 
+        cpf == "77777777777" || 
+        cpf == "88888888888" || 
+        cpf == "99999999999")
+            return false;    
+    let add = 0;    
+    for (let i=0; i < 9; i ++)       
+        add += parseInt(cpf.charAt(i)) * (10 - i);  
+        let rev = 11 - (add % 11);  
+        if (rev == 10 || rev == 11)     
+            rev = 0;    
+        if (rev != parseInt(cpf.charAt(9)))     
+            return false;       
+    
+    add = 0;    
+    for (let i = 0; i < 10; i ++)        
+        add += parseInt(cpf.charAt(i)) * (11 - i);  
+    rev = 11 - (add % 11);  
+    if (rev == 10 || rev == 11) 
+        rev = 0;    
+    if (rev != parseInt(cpf.charAt(10)))
+        return false;       
+    return true;   
+  }
+
+  function aplicarMascaraCPF(input) {
+    let valor = input.value;
+    valor = valor.substring(0, 14);
+    valor = valor.replace(/\D/g, "");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    input.value = valor;
+}
+
+document.getElementById('cpf-cliente-devolucao').addEventListener('input', function() {
+    aplicarMascaraCPF(this);
+});
+
+document.getElementById('cpf-cliente').addEventListener('input', function() {
+    aplicarMascaraCPF(this);
+});
+
