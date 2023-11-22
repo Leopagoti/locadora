@@ -1,14 +1,62 @@
 [
   {
-    "placa": "01",
+    "placa": "ABC1234",
     "tipo": "carro",
-    "valorDiaria": "10",
+    "valorDiaria": "100.00",
+    "alugado": true
+  },
+  {
+    "placa": "DEF5678",
+    "tipo": "moto",
+    "valorDiaria": "50.00",
     "alugado": false
   },
   {
-    "placa": "02",
+    "placa": "GHI9012",
+    "tipo": "carro",
+    "valorDiaria": "120.00",
+    "alugado": false
+  },
+  {
+    "placa": "JKL3456",
+    "tipo": "carro",
+    "valorDiaria": "45.00",
+    "alugado": false
+  },
+  {
+    "placa": "MNO7890",
+    "tipo": "carro",
+    "valorDiaria": "110.00",
+    "alugado": false
+  },
+  {
+    "placa": "PQR1234",
     "tipo": "moto",
-    "valorDiaria": "20",
+    "valorDiaria": "55.00",
+    "alugado": false
+  },
+  {
+    "placa": "STU5678",
+    "tipo": "carro",
+    "valorDiaria": "130.00",
+    "alugado": false
+  },
+  {
+    "placa": "VWX9012",
+    "tipo": "moto",
+    "valorDiaria": "60.00",
+    "alugado": false
+  },
+  {
+    "placa": "YZA3456",
+    "tipo": "carro",
+    "valorDiaria": "115.00",
+    "alugado": false
+  },
+  {
+    "placa": "BCD7890",
+    "tipo": "moto",
+    "valorDiaria": "65.00",
     "alugado": false
   }
 ]

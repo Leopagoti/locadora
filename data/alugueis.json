@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "cliente": {
+      "nome": "Rafael",
+      "cpf": "051",
+      "tipoCarteira": "B"
+    },
+    "veiculo": {
+      "placa": "ABC1234",
+      "tipo": "carro",
+      "valorDiaria": "100.00",
+      "alugado": true
+    },
+    "dias": 3,
+    "valorTotal": 330
+  }
+]
