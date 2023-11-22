@@ -64,5 +64,11 @@
     "tipo": "carro",
     "valorDiaria": "340.00",
     "alugado": false
+  },
+  {
+    "placa": "PAO1010",
+    "tipo": "carro",
+    "valorDiaria": "15.00",
+    "alugado": false
   }
 ]
