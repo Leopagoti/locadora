@@ -15,3 +15,9 @@ após clonar o repositório
 use outros scripts definidos no `package.json`, como `npm run build` e `npm start`.
 
 esse projeto tem um diretório chamado `front-end` onde é possível encontrar um site simples em html onde é possível executar as funções do back
+
+## Colaboradores 
+
+@Leopagoti
+@rafaelkenedy
+@dev-gsilv
